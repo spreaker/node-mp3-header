@@ -26,6 +26,7 @@ const SAMPLES_PER_FRAME = {
 module.exports = class Mp3Header {
 
     constructor(buffer) {
+
         this.buffer   = buffer;
         this.parsed   = false;
         this.header   = null;

@@ -16,11 +16,14 @@
     ],
     "devDependencies": {
         "grunt": "0.4.5",
+        "grunt-contrib-watch": "^1.0.0",
         "grunt-shell": "^2.1.0",
         "jasmine": "^2.5.2"
     },
     "author": "Rocco Zanni <rocco.zanni@spreaker.com>",
-    "contributors": ["Manuel F. Lara <manuelflara@spreaker.com>"],
+    "contributors": [
+        "Manuel F. Lara <manuelflara@spreaker.com>"
+    ],
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/spreaker/node-mp3-header/issues"

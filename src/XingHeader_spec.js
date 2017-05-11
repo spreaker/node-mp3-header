@@ -13,9 +13,11 @@ describe("XingHeader Parsing", function() {
 
         it(`Should properly parse Xing info from MP3 file encoded as ${data.type} ${mode} ${data.samplerate}khz ${data.bitrate}kbps`, function(done) {
 
-            fs.open( __dirname + fixtures_path + "/" + data.filename, 'r', function(err, fd) {
+            const filepath = __dirname + fixtures_path + "/" + data.filename;
+
+            fs.open(filepath, 'r', function(err, fd) {
                 if (err) {
-                    fail(`Fixture file ${filename} can't be opened.`);
+                    fail(`Fixture file ${filepath} can't be opened.`);
                     done();
                     return;
                 }
@@ -27,14 +29,14 @@ describe("XingHeader Parsing", function() {
 
                     if (err) {
                         return fs.close(fd, function() {
-                            fail(`Fixture file ${filename} can't be read.`);
+                            fail(`Fixture file ${filepath} can't be read.`);
                             done();
                         });
                     }
 
                     var header = new XingHeader(buffer);
                     if (!header.parsed || !header.is_valid) {
-                        fail(`Fixture file ${filename} doesn't have a valid MPEG header.`);
+                        fail(`Fixture file ${filepath} doesn't have a valid XING header.`);
                         done();
                         return;
                     }
