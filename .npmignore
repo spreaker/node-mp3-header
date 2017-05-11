@@ -2,3 +2,5 @@ Gruntfile.js
 jasmine.json
 src/**/*_spec.js
 fixtures
+yarn.lock
+.npmignore
