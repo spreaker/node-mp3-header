@@ -54,7 +54,7 @@ fs.open( "filename.mp3", 'r', function(err, fd) {
             return fs.close(fd);
         }
 
-        var header = new Mp3Header(buffer);
+        var header = new XingHeader(buffer);
         if (header.parsed && header.is_valid) {
             console.info("Number of audio frames: ", header.xing_frames);
         }
@@ -66,9 +66,9 @@ fs.open( "filename.mp3", 'r', function(err, fd) {
 
 ### Classes
 
-The package exports two classes for parsing MP3 file headers: `Mp3Header` and `XingHeader`. 
+The package exports two classes for parsing MP3 file headers: `Mp3Header` and `XingHeader`.
 
-`Mp3Header` is the one that takes care of parsing the MPEG header of an MP3 audio frame, and provides informations about the encoding. 
+`Mp3Header` is the one that takes care of parsing the MPEG header of an MP3 audio frame, and provides informations about the encoding.
 
 `XingHeader` is an extension `Mp3Header` that also takes care of parsing the metadata related to the Xing table of the MP3 file.
 
