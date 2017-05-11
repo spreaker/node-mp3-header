@@ -1,3 +1,7 @@
+/**
+ * Bitrates table:
+ * the bitrate value is calculated based on the mpeg version and layer
+ */
 const BITRATES = {
     1: {
         1: [0, 32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, 416, 448, 0],
@@ -13,11 +17,19 @@ const BITRATES = {
     }
 }
 
+/**
+ * Sample rate table:
+ * the sample rate value is calculated based on the mpeg version
+ */
 const SAMPLE_RATES = {
     1: [44100, 48000, 32000, 0],
     2: [22050, 24000, 16000, 0]
 }
 
+/**
+ * Samples per frame table:
+ * the number of samples per frame is calculated based on the mpeg version and layer
+ */
 const SAMPLES_PER_FRAME = {
     1: {1: 0, 2: 1152, 3: 1152, 4: 384},
     2: {1: 0, 2: 576, 3: 1152, 4: 384}

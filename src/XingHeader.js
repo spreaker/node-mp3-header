@@ -58,7 +58,6 @@ module.exports = class XingHeader {
         this.xing_flags           = this.mp3.buffer.readUInt8(this.xing_flags_offset + 3);
         this.xing_has_frames      = this.xing_flags & 0x01 == 0x01;
         this.xing_has_bytes       = this.xing_flags & 0x02 == 0x02;
-        this.xing_has_toc         = this.xing_flags & 0x03 == 0x03;
         this.xing_frames_offset   = this.xing_flags_offset + 4;
         this.xing_bytes_offset    = this.xing_flags_offset + (this.xing_has_frames ? 4 : 0) + 4;
         this.xing_frames          = this.xing_has_frames ? this.mp3.buffer.readInt32BE(this.xing_frames_offset) : 0;
