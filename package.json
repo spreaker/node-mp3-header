@@ -1,5 +1,5 @@
 {
-    "name": "node-mp3-header",
+    "name": "mp3-header",
     "version": "0.1.0",
     "description": "Parsing of MP3 headers including Xing table.",
     "main": "index.js",

@@ -1,4 +1,4 @@
 Gruntfile.js
-*.md
 jasmine.json
 src/**/*_spec.js
+fixtures
