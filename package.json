@@ -1,6 +1,6 @@
 {
   "name": "mp3-header",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Parsing of MP3 headers including Xing table.",
   "main": "index.js",
   "scripts": {
