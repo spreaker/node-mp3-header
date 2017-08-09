@@ -46,7 +46,7 @@ describe("XingHeader Parsing", function() {
                     expect(header.mpeg_samplerate).toBe(data.samplerate);
                     expect(header.mpeg_frame_length).toBe(data.frame_length);
                     expect(header.mpeg_has_padding).toBeFalsy();
-                    expect(header.mpeg_num_samples).toBe(1152);
+                    expect(header.mpeg_num_samples).toBe(data.num_samples);
                     expect(header.mpeg_bitrate).toBe(data.bitrate*1000);
 
                     expect(header.xing_offset).toBe(data.xing_offset);

@@ -31,8 +31,8 @@ const SAMPLE_RATES = {
  * the number of samples per frame is calculated based on the mpeg version and layer
  */
 const SAMPLES_PER_FRAME = {
-    1: {1: 0, 2: 1152, 3: 1152, 4: 384},
-    2: {1: 0, 2: 576, 3: 1152, 4: 384}
+    1: {0: 0, 1: 384, 2: 1152, 3: 1152},
+    2: {0: 0, 1: 384, 2: 1152, 3: 576}
 }
 
 module.exports = class Mp3Header {
