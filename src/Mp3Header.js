@@ -70,6 +70,12 @@ module.exports = class Mp3Header {
         this.header             = header;
         this.mpeg_version       = this._getMpegVersion(header[1] >> 3);
         this.mpeg_layer         = this._getMpegLayer(header[1] >> 1);
+
+        if (!this.mpeg_version || !this.mpeg_layer) {
+            this.is_valid = false;
+            return;
+        }
+
         this.mpeg_has_padding   = (header[2] & 0x02) >> 1 == 0x01;
         this.mpeg_channels      = this._getMpegChannels(header[3] >> 6);
         this.mpeg_bitrate       = this._getMpegBitrate(this.mpeg_version, this.mpeg_layer, header[2] >> 4);
