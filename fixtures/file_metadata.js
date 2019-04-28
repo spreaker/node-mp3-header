@@ -66,6 +66,17 @@ module.exports = [
         xing_bytes: 155479,
         num_samples: 1152
     },{
+        filename: "mp3-cbr-stereo-44100khz-192kbps-id3v2.mp3",
+        type: "cbr",
+        channels: 2,
+        samplerate: 44100,
+        bitrate: 192,
+        frame_length: 626,
+        xing_offset: 2183,
+        xing_frames: 247,
+        xing_bytes: 155479,
+        num_samples: 1152
+    },{
         filename: "mp3-cbr-mono-48000khz-64kbps.mp3",
         type: "cbr",
         channels: 1,
