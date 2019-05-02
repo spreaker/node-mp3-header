@@ -9,7 +9,8 @@ module.exports = [
         xing_offset: 21,
         xing_frames: 223,
         xing_bytes: 43008,
-        num_samples: 576
+        num_samples: 576,
+        id3v2_offset: 0
     },{
         filename: "mp3-cbr-stereo-32000khz-64kbps.mp3",
         type: "cbr",
@@ -20,7 +21,8 @@ module.exports = [
         xing_offset: 36,
         xing_frames: 146,
         xing_bytes: 42336,
-        num_samples: 1152
+        num_samples: 1152,
+        id3v2_offset: 0
     },{
         filename: "mp3-cbr-mono-44100khz-64kbps.mp3",
         type: "cbr",
@@ -31,7 +33,8 @@ module.exports = [
         xing_offset: 21,
         xing_frames: 222,
         xing_bytes: 46601,
-        num_samples: 1152
+        num_samples: 1152,
+        id3v2_offset: 0
     },{
         filename: "mp3-cbr-mono-44100khz-128kbps.mp3",
         type: "cbr",
@@ -42,7 +45,8 @@ module.exports = [
         xing_offset: 21,
         xing_frames: 238,
         xing_bytes: 99891,
-        num_samples: 1152
+        num_samples: 1152,
+        id3v2_offset: 0
     },{
         filename: "mp3-cbr-stereo-44100khz-128kbps.mp3",
         type: "cbr",
@@ -53,7 +57,8 @@ module.exports = [
         xing_offset: 36,
         xing_frames: 243,
         xing_bytes: 101981,
-        num_samples: 1152
+        num_samples: 1152,
+        id3v2_offset: 0
     },{
         filename: "mp3-cbr-stereo-44100khz-192kbps.mp3",
         type: "cbr",
@@ -64,7 +69,8 @@ module.exports = [
         xing_offset: 36,
         xing_frames: 247,
         xing_bytes: 155479,
-        num_samples: 1152
+        num_samples: 1152,
+        id3v2_offset: 0
     },{
         filename: "mp3-cbr-stereo-44100khz-192kbps-id3v2.mp3",
         type: "cbr",
@@ -72,10 +78,11 @@ module.exports = [
         samplerate: 44100,
         bitrate: 192,
         frame_length: 626,
-        xing_offset: 2183,
+        xing_offset: 42041,
         xing_frames: 247,
         xing_bytes: 155479,
-        num_samples: 1152
+        num_samples: 1152,
+        id3v2_offset: 42005
     },{
         filename: "mp3-cbr-mono-48000khz-64kbps.mp3",
         type: "cbr",
@@ -86,7 +93,8 @@ module.exports = [
         xing_offset: 21,
         xing_frames: 215,
         xing_bytes: 41472,
-        num_samples: 1152
+        num_samples: 1152,
+        id3v2_offset: 0
     },{
         filename: "mp3-cbr-stereo-48000khz-128kbps.mp3",
         type: "cbr",
@@ -97,7 +105,8 @@ module.exports = [
         xing_offset: 36,
         xing_frames: 237,
         xing_bytes: 91392,
-        num_samples: 1152
+        num_samples: 1152,
+        id3v2_offset: 0
     },{
         filename: "mp3-vbr-mono-22050khz-64kbps.mp3",
         type: "vbr",
@@ -108,7 +117,8 @@ module.exports = [
         xing_offset: 13,
         xing_frames: 205,
         xing_bytes: 22813,
-        num_samples: 576
+        num_samples: 576,
+        id3v2_offset: 0
     },{
         filename: "mp3-vbr-stereo-22050khz-64kbps.mp3",
         type: "vbr",
@@ -119,7 +129,8 @@ module.exports = [
         xing_offset: 21,
         xing_frames: 215,
         xing_bytes: 50342,
-        num_samples: 576
+        num_samples: 576,
+        id3v2_offset: 0
     },{
         filename: "mp3-vbr-mono-44100khz-128kbps.mp3",
         type: "vbr",
@@ -130,7 +141,8 @@ module.exports = [
         xing_offset: 21,
         xing_frames: 235,
         xing_bytes: 98295,
-        num_samples: 1152
+        num_samples: 1152,
+        id3v2_offset: 0
     },{
         filename: "mp3-vbr-stereo-44100khz-128kbps.mp3",
         type: "vbr",
@@ -141,6 +153,7 @@ module.exports = [
         xing_offset: 36,
         xing_frames: 241,
         xing_bytes: 77751,
-        num_samples: 1152
+        num_samples: 1152,
+        id3v2_offset: 0
     }
 ];

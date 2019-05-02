@@ -81,6 +81,7 @@ Once you parse a header, these are the properties you can access from the packag
 | -------------------------- | -------- | ------------ | --------- |
 | `parsed`                   | Boolean  | Both         | `true`    |
 | `is_valid`                 | Boolean  | Both         | `true`    |
+| `id3v2_offset`             | Integer  | Both         | `42005`   |
 | `mpeg_version`             | Integer  | Both         | `2`       |
 | `mpeg_layer`               | Integer  | Both         | `3`       |
 | `mpeg_has_padding`         | Boolean  | Both         | `true`    |
