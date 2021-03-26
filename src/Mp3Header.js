@@ -1,4 +1,8 @@
 /**
+ * All Info available at:
+ * https://www.codeproject.com/Articles/8295/MPEG-Audio-Frame-Header
+ *
+ *
  * Bitrates table:
  * the bitrate value is calculated based on the mpeg version and layer
  */
@@ -14,6 +18,12 @@ const BITRATES = {
         2: [0, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160, 0],
         3: [0, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160, 0],
         4: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    25: {
+        1: [0, 32, 48, 56, 64, 80, 96, 112, 128, 144, 160, 176, 192, 224, 256, 0],
+        2: [0, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160, 0],
+        3: [0, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160, 0],
+        4: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
 }
 
@@ -23,7 +33,8 @@ const BITRATES = {
  */
 const SAMPLE_RATES = {
     1: [44100, 48000, 32000, 0],
-    2: [22050, 24000, 16000, 0]
+    2: [22050, 24000, 16000, 0],
+    25: [11025, 12000, 8000, 0]
 }
 
 /**
@@ -32,7 +43,8 @@ const SAMPLE_RATES = {
  */
 const SAMPLES_PER_FRAME = {
     1: {0: 0, 1: 384, 2: 1152, 3: 1152},
-    2: {0: 0, 1: 384, 2: 1152, 3: 576}
+    2: {0: 0, 1: 384, 2: 1152, 3: 576},
+    25: {0: 0, 1: 384, 2: 1152, 3: 576}
 }
 
 module.exports = class Mp3Header {
@@ -91,7 +103,7 @@ module.exports = class Mp3Header {
     }
 
     _isMpegHeader(header) {
-        return (((header[0] & 0xFF) << 8)  | ((header[1] & 0xF0))) == 0xFFF0;
+        return (((header[0] & 0xFF) << 8)  | ((header[1] & 0xE0))) == 0xFFE0;
     }
 
     _getMpegVersion(num) {
@@ -109,6 +121,10 @@ module.exports = class Mp3Header {
 
         if ((num & 0x02) == 0x02) {
             return 2;
+        }
+
+        if ((num & 0x03) === 0) {
+            return 25;
         }
 
         return 0;

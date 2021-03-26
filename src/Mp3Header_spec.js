@@ -15,7 +15,7 @@ describe("MP3Header Parsing", function() {
 
             fs.open( __dirname + fixtures_path + "/" + data.filename, 'r', function(err, fd) {
                 if (err) {
-                    fail(`Fixture file ${filename} can't be opened.`);
+                    fail(`Fixture file ${data.filename} can't be opened.`);
                     done();
                     return;
                 }
@@ -27,14 +27,14 @@ describe("MP3Header Parsing", function() {
 
                     if (err) {
                         return fs.close(fd, function() {
-                            fail(`Fixture file ${filename} can't be read.`);
+                            fail(`Fixture file ${data.filename} can't be read.`);
                             done();
                         });
                     }
 
                     var header = new Mp3Header(buffer);
                     if (!header.parsed || !header.is_valid) {
-                        fail(`Fixture file ${filename} doesn't have a valid MPEG header.`);
+                        fail(`Fixture file ${data.filename} doesn't have a valid MPEG header.`);
                         done();
                         return;
                     }
