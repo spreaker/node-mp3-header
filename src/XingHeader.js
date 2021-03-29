@@ -47,7 +47,7 @@ module.exports = class XingHeader {
         this.is_valid = false;
 
         // If this header don't contains a Xing/Info tag, nothing to do
-        this.xing_offset  = this.mp3.header.length + XING_OFFSETS[this.mp3.mpeg_version][this.mp3.mpeg_channels];
+        this.xing_offset  = this.mp3.id3v2_offset + this.mp3.header.length + XING_OFFSETS[this.mp3.mpeg_version][this.mp3.mpeg_channels];
         this.xing_keyword = this.mp3.buffer.toString("ascii", this.xing_offset, this.xing_offset + 4);
         if (this.xing_keyword !== "Xing" && this.xing_keyword != "Info") {
             return;

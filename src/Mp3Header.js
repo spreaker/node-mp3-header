@@ -47,6 +47,24 @@ const SAMPLES_PER_FRAME = {
     25: {0: 0, 1: 384, 2: 1152, 3: 576}
 }
 
+// https://en.wikipedia.org/wiki/Synchsafe
+function _unsynchsafe(int) {
+    var out = 0, mask = 0x7F000000;
+    while (mask) {
+        out >>= 1;
+        out |= int & mask;
+        mask >>= 8;
+    }
+    return out;
+}
+
+function _isKthBitSet(n, k) {
+    if (n & (1 << (k - 1))) {
+        return true;
+    }
+    return false;
+}
+
 module.exports = class Mp3Header {
 
     constructor(buffer) {
@@ -55,6 +73,7 @@ module.exports = class Mp3Header {
         this.parsed   = false;
         this.header   = null;
         this.is_valid = false;
+        this.id3v2_offset = 0;
 
         this._parse();
     }
@@ -65,15 +84,33 @@ module.exports = class Mp3Header {
             return;
         }
 
+        // Not enough data to check for id3v2
+        if (this.buffer.length < 3) {
+            return;
+        }
+
+        // http://fileformats.archiveteam.org/wiki/ID3#How_to_skip_past_an_ID3v2_segment
+        var maybe_id3 = this.buffer.toString("ascii", 0, 3);
+        if (maybe_id3 == "ID3") {
+            // Decode bytes 6-9 as a 32-bit "synchsafe int" (refer to any ID3v2 spec).
+            var synchsafe = this.buffer.readInt32BE(6);
+            var synchsafe_decoded = _unsynchsafe(synchsafe);
+            this.id3v2_offset = 10 + synchsafe_decoded;
+            // If the 0x10 bit of byte 5 is set, let OFFSET = OFFSET + 10 (for the footer).
+            if (_isKthBitSet(this.buffer.readUInt8(5), 2)) {
+                this.id3v2_offset += 10;
+            }
+        }
+
         // Not enough data to read the header
-        if (this.buffer.length < 4) {
+        if (this.buffer.length < this.id3v2_offset + 4) {
             return;
         }
 
         this.parsed = true;
 
         // Read the first 4 bytes
-        var header = [this.buffer.readUInt8(0), this.buffer.readUInt8(1), this.buffer.readUInt8(2), this.buffer.readUInt8(3)];
+        var header = [this.buffer.readUInt8(this.id3v2_offset + 0), this.buffer.readUInt8(this.id3v2_offset + 1), this.buffer.readUInt8(this.id3v2_offset + 2), this.buffer.readUInt8(this.id3v2_offset + 3)];
         this.is_valid = this._isMpegHeader(header);
         if (!this.is_valid) {
             return;

@@ -6,6 +6,7 @@ describe("XingHeader Parsing", function() {
     const fixtures_path = "/../fixtures";
     const expected_data = require(`./${fixtures_path}/file_metadata`);
     const MAX_FRAME_LENGTH = 2881; // Theoretical max mp3 frame length
+    const NUMBER_OF_BYTES = 65536 + MAX_FRAME_LENGTH; // Include 64k bytes for id3v2 header
 
     for (const data of expected_data) {
 
@@ -22,10 +23,10 @@ describe("XingHeader Parsing", function() {
                     return;
                 }
 
-                var buffer = new Buffer(MAX_FRAME_LENGTH);
+                var buffer = new Buffer(NUMBER_OF_BYTES);
                 var offset = 0;
 
-                fs.read(fd, buffer, 0, MAX_FRAME_LENGTH, offset, function(err, bytesRead, buffer) {
+                fs.read(fd, buffer, 0, NUMBER_OF_BYTES, offset, function(err, bytesRead, buffer) {
 
                     if (err) {
                         return fs.close(fd, function() {
