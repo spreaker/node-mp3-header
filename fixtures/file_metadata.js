@@ -77,6 +77,17 @@ module.exports = [
         xing_bytes: 41472,
         num_samples: 1152
     },{
+        filename: "mp3-cbr-mono-8000khz-64kbps.mp3",
+        type: "cbr",
+        channels: 1,
+        samplerate: 8000,
+        bitrate: 64,
+        frame_length: 576,
+        xing_offset: 13,
+        xing_frames: 74,
+        xing_bytes: 43200,
+        num_samples: 576
+    },{
         filename: "mp3-cbr-stereo-48000khz-128kbps.mp3",
         type: "cbr",
         channels: 2,
@@ -87,6 +98,17 @@ module.exports = [
         xing_frames: 237,
         xing_bytes: 91392,
         num_samples: 1152
+    },{
+        filename: "mp3-cbr-stereo-8000khz-128kbps.mp3",
+        type: "cbr",
+        channels: 2,
+        samplerate: 8000,
+        bitrate: 128,
+        frame_length: 1152,
+        xing_offset: 21,
+        xing_frames: 81,
+        xing_bytes: 47808,
+        num_samples: 576
     },{
         filename: "mp3-vbr-mono-22050khz-64kbps.mp3",
         type: "vbr",

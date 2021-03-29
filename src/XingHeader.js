@@ -5,8 +5,9 @@ const Mp3Header = require("./Mp3Header");
  * The value changes based on the MPEG version and the number of channels
  */
 const XING_OFFSETS = {
-    1: { 1: 17, 2: 32 },
-    2: { 1: 9,  2: 17 }
+    1:  { 1: 17, 2: 32 },
+    2:  { 1: 9,  2: 17 },
+    25: { 1: 9,  2: 17 }
 };
 
 module.exports = class XingHeader {
